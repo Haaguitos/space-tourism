@@ -7,10 +7,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        'overlay-show': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        'overlay-show': 'overlay-show 400ms',
+      },
+      fontFamily: {
+        sans: 'var(--font-barlow)',
+        'sans-condensed': 'var(--font-barlow-condensed)',
+        alt: 'var(--font-bellefair)',
+      },
+      colors: {
+        primary: '#0B0D17',
+        secondary: '#D0D6F9',
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'home-desktop': "url('~/src/assets/home/background-home-desktop.jpg')",
+        'home-mobile': "url('~/src/assets/home/background-home-mobile.jpg')",
+        'home-tablet': "url('~/src/assets/home/background-home-tablet.jpg')",
       },
     },
   },
