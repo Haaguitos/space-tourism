@@ -1,8 +1,12 @@
+'use client'
+
 import { ReactNode } from 'react'
 import './globals.css'
 // eslint-disable-next-line camelcase
 import { Bellefair, Barlow_Condensed, Barlow } from 'next/font/google'
 import { Header } from '@/components/Header'
+import { usePathname } from 'next/navigation'
+import { DestinationContextProvider } from '@/context/destination'
 
 const bellefair = Bellefair({
   subsets: ['latin'],
@@ -27,13 +31,24 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
+
+  console.log('pathname', pathname)
+
+  const returnBackground = () => {
+    if (pathname === '/destination')
+      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-destination-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-destination-tablet xl:bg-destination-desktop`
+    else
+      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-home-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-home-tablet xl:bg-home-desktop`
+  }
+
   return (
     <html lang="en">
-      <body
-        className={`${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} font-sans text-gray-100 min-h-screen bg-home-mobile bg-no-repeat bg-cover `}
-      >
-        <Header />
-        {children}
+      <body className={returnBackground()}>
+        <DestinationContextProvider>
+          <Header />
+          {children}
+        </DestinationContextProvider>
       </body>
     </html>
   )
