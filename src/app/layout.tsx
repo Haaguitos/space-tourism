@@ -6,7 +6,6 @@ import './globals.css'
 import { Bellefair, Barlow_Condensed, Barlow } from 'next/font/google'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
-import { DestinationContextProvider } from '@/context/destination'
 
 const bellefair = Bellefair({
   subsets: ['latin'],
@@ -38,6 +37,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const returnBackground = () => {
     if (pathname === '/destination')
       return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-destination-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-destination-tablet xl:bg-destination-desktop`
+    else if (pathname === '/crew')
+      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-crew-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-crew-tablet xl:bg-crew-desktop`
+    else if (pathname === '/technology')
+      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-technology-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-technology-tablet xl:bg-technology-desktop`
     else
       return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-home-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-home-tablet xl:bg-home-desktop`
   }
@@ -45,10 +48,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={returnBackground()}>
-        <DestinationContextProvider>
-          <Header />
-          {children}
-        </DestinationContextProvider>
+        <Header />
+        {children}
       </body>
     </html>
   )

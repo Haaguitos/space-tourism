@@ -2,7 +2,7 @@ import { ExploreButton } from '@/components/ExploreButton'
 
 export default function Home() {
   return (
-    <main className="mt-[15vh] flex flex-col xl:mx-auto xl:max-w-[90rem] xl:flex-row xl:justify-between xl:px-40 xl:pb-32">
+    <main className="flex flex-col md:mt-[15vh] md:pb-16 xl:mx-auto xl:max-w-[90rem] xl:flex-row xl:justify-between xl:px-40 xl:pb-32">
       <div className="mb-20 flex flex-col items-center gap-4 px-6 pt-16 text-center md:mb-40 md:pt-24 xl:mb-0 xl:items-start xl:px-0 xl:text-left">
         <h2 className="font-sans-condensed tracking-[0.16875rem] text-secondary md:text-xl xl:text-2xl">
           SO, YOU WANT TO TRAVEL TO

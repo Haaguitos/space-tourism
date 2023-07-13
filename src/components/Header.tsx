@@ -25,7 +25,7 @@ export function Header() {
       </Link>
 
       <button
-        className="z-10 flex items-center md:hidden"
+        className="z-[2] flex items-center md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         {showMobileMenu ? (
@@ -58,7 +58,7 @@ export function Header() {
           className={`box-border h-24 ${
             pathname === '/crew' ? `border-b-2 border-white` : `pb-[2px]`
           } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/destination/crew')}
+          onClick={() => router.push('/crew')}
         >
           CREW
         </button>
@@ -66,14 +66,14 @@ export function Header() {
           className={`box-border h-24 ${
             pathname === '/technology' ? `border-b-2 border-white` : `pb-[2px]`
           } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/destination/crew/technology')}
+          onClick={() => router.push('/technology')}
         >
           TECHNOLOGY
         </button>
       </div>
 
       {showMobileMenu && (
-        <div className="fixed right-0 top-0 flex min-h-screen w-60 animate-overlay-show flex-col gap-8 bg-white/5 pl-8 pt-28 backdrop-blur-2xl">
+        <div className="fixed right-0 top-0 z-[1] flex min-h-screen w-60 animate-overlay-show flex-col gap-8 bg-white/5 pl-8 pt-28 backdrop-blur-2xl">
           <span
             className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
             onClick={() => router.push('/')}
@@ -88,13 +88,13 @@ export function Header() {
           </span>
           <span
             className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/destination/crew')}
+            onClick={() => router.push('/crew')}
           >
             <strong className="w-5">02</strong> CREW
           </span>
           <span
             className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/destination/crew/technology')}
+            onClick={() => router.push('/technology')}
           >
             <strong className="w-5">03</strong> TECHNOLOGY
           </span>
