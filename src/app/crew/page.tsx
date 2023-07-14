@@ -59,12 +59,14 @@ export default function Crew() {
         </div>
       </div>
 
-      <Image
-        src={selectedMember.image}
-        height="720"
-        alt="Image"
-        className="hidden h-[45rem] w-auto animate-overlay-show xl:flex"
-      />
+      <div className="hidden h-[45rem] items-end align-bottom xl:flex">
+        <Image
+          src={selectedMember.image}
+          width="544"
+          alt="Image"
+          className="h-fit w-auto animate-overlay-show"
+        />
+      </div>
     </main>
   )
 }

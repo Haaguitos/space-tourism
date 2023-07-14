@@ -48,7 +48,7 @@ export default function Destination() {
           {selectectedDestination.name}
         </h2>
 
-        <p className="text-center text-secondary md:max-w-xl xl:max-w-md xl:text-left">
+        <p className="line-clamp-4 text-center text-secondary md:max-w-xl xl:max-w-md xl:text-left xl:text-lg">
           {selectectedDestination.description}
         </p>
 
