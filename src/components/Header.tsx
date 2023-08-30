@@ -3,12 +3,11 @@
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export function Header() {
   const pathname = usePathname()
-  const router = useRouter()
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
 
