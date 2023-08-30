@@ -6,6 +6,7 @@ import './globals.css'
 import { Bellefair, Barlow_Condensed, Barlow } from 'next/font/google'
 import { Header } from '@/components/Header'
 import { usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 const bellefair = Bellefair({
   subsets: ['latin'],
@@ -32,22 +33,24 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 
-  console.log('pathname', pathname)
-
   const returnBackground = () => {
     if (pathname === '/destination')
-      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-destination-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-destination-tablet xl:bg-destination-desktop`
+      return `bg-destination-mobile md:bg-destination-tablet xl:bg-destination-desktop`
     else if (pathname === '/crew')
-      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-crew-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-crew-tablet xl:bg-crew-desktop`
+      return `bg-crew-mobile md:bg-crew-tablet xl:bg-crew-desktop`
     else if (pathname === '/technology')
-      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-technology-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-technology-tablet xl:bg-technology-desktop`
-    else
-      return `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-home-mobile bg-cover bg-no-repeat font-sans text-gray-100 md:bg-home-tablet xl:bg-home-desktop`
+      return `bg-technology-mobile md:bg-technology-tablet xl:bg-technology-desktop`
+    else return `bg-home-mobile md:bg-home-tablet xl:bg-home-desktop`
   }
 
   return (
-    <html lang="en">
-      <body className={returnBackground()}>
+    <html lang="en" className="bg-[#0B0D19]">
+      <body
+        className={twMerge(
+          returnBackground(),
+          `${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} min-h-screen bg-cover bg-no-repeat font-sans text-gray-100 xl:overflow-hidden`,
+        )}
+      >
         <Header />
         {children}
       </body>

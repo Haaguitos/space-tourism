@@ -38,66 +38,66 @@ export function Header() {
       <div className="relative hidden gap-10 bg-white/5 px-12 backdrop-blur-2xl md:flex xl:w-[60%] xl:px-32">
         <div className="absolute left-[-45%] top-1/2 hidden w-1/2 border-b-[1px] border-white/25 xl:flex" />
 
-        <button
+        <Link
           className={`box-border h-24 ${
             pathname === '/' ? `border-b-2 border-white` : `pb-[2px]`
-          } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/')}
+          } flex items-center font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
+          href="/"
         >
           HOME
-        </button>
-        <button
+        </Link>
+        <Link
           className={`box-border h-24 ${
             pathname === '/destination' ? `border-b-2 border-white` : `pb-[2px]`
-          } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/destination')}
+          } flex items-center font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
+          href="/destination"
         >
           DESTINATION
-        </button>
-        <button
+        </Link>
+        <Link
           className={`box-border h-24 ${
             pathname === '/crew' ? `border-b-2 border-white` : `pb-[2px]`
-          } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/crew')}
+          } flex items-center font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
+          href="/crew"
         >
           CREW
-        </button>
-        <button
+        </Link>
+        <Link
           className={`box-border h-24 ${
             pathname === '/technology' ? `border-b-2 border-white` : `pb-[2px]`
-          } font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
-          onClick={() => router.push('/technology')}
+          } flex items-center font-sans-condensed text-sm tracking-[0.14763rem] hover:border-b-2 hover:border-white/50 hover:pb-0`}
+          href="/technology"
         >
           TECHNOLOGY
-        </button>
+        </Link>
       </div>
 
       {showMobileMenu && (
         <div className="fixed right-0 top-0 z-[1] flex min-h-screen w-60 animate-overlay-show flex-col gap-8 bg-white/5 pl-8 pt-28 backdrop-blur-2xl">
-          <span
-            className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/')}
+          <Link
+            className="flex cursor-pointer gap-2 font-sans-condensed tracking-[0.16875rem]"
+            href="/"
           >
             <strong className="w-5">00</strong> HOME
-          </span>
-          <span
-            className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/destination')}
+          </Link>
+          <Link
+            className="flex cursor-pointer gap-2 font-sans-condensed tracking-[0.16875rem]"
+            href="/destination"
           >
             <strong className="w-5">01</strong> DESTINATION
-          </span>
-          <span
-            className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/crew')}
+          </Link>
+          <Link
+            className="flex cursor-pointer gap-2 font-sans-condensed tracking-[0.16875rem]"
+            href="/crew"
           >
             <strong className="w-5">02</strong> CREW
-          </span>
-          <span
-            className="flex gap-2 font-sans-condensed tracking-[0.16875rem]"
-            onClick={() => router.push('/technology')}
+          </Link>
+          <Link
+            className="flex cursor-pointer gap-2 font-sans-condensed tracking-[0.16875rem]"
+            href="/technology"
           >
             <strong className="w-5">03</strong> TECHNOLOGY
-          </span>
+          </Link>
         </div>
       )}
     </header>
